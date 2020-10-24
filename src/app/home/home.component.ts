@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  message = 'H';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  sendMessage(message: string): void {
+  }
 }
