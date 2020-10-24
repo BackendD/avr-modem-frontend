@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AvrModemService } from 'avr-modem';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  message = 'H';
+  message = '';
 
-  constructor() {
+  constructor(private avrModemService: AvrModemService) {
   }
 
   ngOnInit(): void {
   }
 
   sendMessage(message: string): void {
+    this.avrModemService.send(message);
   }
 }
