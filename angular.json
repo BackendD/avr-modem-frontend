@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "avr-modem": {
+      "projectType": "library",
+      "root": "projects/avr-modem",
+      "sourceRoot": "projects/avr-modem/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/avr-modem/tsconfig.lib.json",
+            "project": "projects/avr-modem/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/avr-modem/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/avr-modem/src/test.ts",
+            "tsConfig": "projects/avr-modem/tsconfig.spec.json",
+            "karmaConfig": "projects/avr-modem/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/avr-modem/tsconfig.lib.json",
+              "projects/avr-modem/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "avr-modem-frontend"
 }
