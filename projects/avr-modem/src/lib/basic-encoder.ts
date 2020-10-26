@@ -54,6 +54,8 @@ export class BasicEncoder implements AvrModemEncoder {
   modulate(message: string): Float32Array {
 
     message = utf8Encode(message);
+    // setting 0 at the end of the message
+    message += String.fromCharCode(0);
     const bufferLength = message.length * 10 * this.samplesPerBit;
     const samples: Float32Array = new Float32Array(bufferLength);
 
